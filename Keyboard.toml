@@ -13,7 +13,7 @@ from = 56
 to = 1
 type = 0
 
-[[KeyboardConfig.buttons]]
+[[KeyboardConfig.axes]]
 # a specific keyboard mapping would follow this structure:
 # axis = axis ID
 # increase = <scan code of key to increase axis>
