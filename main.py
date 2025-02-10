@@ -1,14 +1,8 @@
-print("hello world")
 
 # MVP needed modules:
 # reading toml
 # reading keyboard
 # running virtual joystick
-
-class KeyMap:
-    def __init__(self, fromKey, toKey) -> None:
-        self.fromKey = fromKey
-        self.toKey = toKey
 
 
 # some method of selecting a toml file
