@@ -1,7 +1,7 @@
 [KeyboardConfig]
 #general configs for the keyboard goes here
 
-[[KeyboardConfig.mappings]]
+[[KeyboardConfig.buttons]]
 # a specific keyboard mapping would follow this structure: (note: datatypes may be different)
-to = ""
-from = ""
+from = -1
+to = "A"
