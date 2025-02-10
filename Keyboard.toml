@@ -1,0 +1,7 @@
+[KeyboardConfig]
+#general configs for the keyboard goes here
+
+[[KeyboardConfig.mappings]]
+# a specific keyboard mapping would follow this structure: (note: datatypes may be different)
+to = ""
+from = ""
