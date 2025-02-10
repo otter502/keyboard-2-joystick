@@ -1,8 +1,7 @@
-
 # MVP needed modules:
 # reading toml
 # reading keyboard
-# running virtual joystick
+import pyvjoy
 
 
 # some method of selecting a toml file
