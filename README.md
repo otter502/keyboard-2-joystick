@@ -11,4 +11,4 @@ Goal: have something that converts keyboard inputs to a virtual joystick based o
 | --------          | ------- | ---- |
 | config            | running in background    |  GUI to edit config   |
 | virtual keyboard  | Easy way to enable and disable (toolbar?)   |    |
-| keyboard to joystick remapping |     |   |
+| keyboard to joystick remapping |  switching between configs by loading them   |   |
