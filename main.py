@@ -2,7 +2,7 @@
 # reading toml
 # reading keyboard
 import pyvjoy
-
+import keyboard
 
 # some method of selecting a toml file
 
