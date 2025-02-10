@@ -1,5 +1,7 @@
 [KeyboardConfig]
 #general configs for the keyboard goes here
+# vjoyID = <ID of vjoy controller>
+vjoyID = 1
 
 [[KeyboardConfig.buttons]]
 # a specific keyboard mapping would follow this structure:
@@ -10,3 +12,19 @@
 from = 56
 to = 1
 type = 0
+
+[[KeyboardConfig.buttons]]
+# a specific keyboard mapping would follow this structure:
+# axis = axis ID
+# increase = <scan code of key to increase axis>
+# decrease = <scan code of key to decrease axis> 
+# key = <rate that the key increases the value by>
+# decay = <rate of decay (towards zero) when no button is pressed>
+# max = <max value of the axis>
+
+axis = 1
+increase = 87
+decrease = 83
+key = 0.05
+decay = 0.05
+max = 1.0
