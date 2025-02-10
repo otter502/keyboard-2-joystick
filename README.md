@@ -5,7 +5,7 @@
 
 # Development
 
-Goal: have something that converts keyboard inputs to a virtual joystick based on an easily editable config file
+Goal: have something that converts keyboard inputs to a virtual joystick based on an easily editable config file, similair to the GLASS tool used in FRC
 
 | Needs             | wants | Nice to have |
 | --------          | ------- | ---- |
