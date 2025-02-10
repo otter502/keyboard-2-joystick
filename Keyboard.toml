@@ -2,6 +2,11 @@
 #general configs for the keyboard goes here
 
 [[KeyboardConfig.buttons]]
-# a specific keyboard mapping would follow this structure: (note: datatypes may be different)
-from = -1
-to = "A"
+# a specific keyboard mapping would follow this structure:
+# from = <scan code of key>
+# to = button ID
+# type = <0 = "hold"; 1 = "toggle on press">
+
+from = 56
+to = 1
+type = 0
