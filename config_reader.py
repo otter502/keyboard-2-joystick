@@ -32,7 +32,7 @@ def convertToAxesMap(tomlAxes: dict[str, Any]) -> AxesMapData:
 
 def convertToPov(tomlPov: dict[str, Any]) -> ContPovMapData:
     return ContPovMapData(
-        tomlPov.get("button"),
+        tomlPov.get("scan_code"),
         tomlPov.get("pov_id"),
         tomlPov.get("pov_value")
     )
