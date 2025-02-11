@@ -1,7 +1,9 @@
 # Keyboard 2 joystick
 
-> [!CAUTION]
-> This project is currently under development!
+> [!Warning]
+> This project is currently under development! it might have bugs, weird typos, debug code, and other weirdness, explore at your own risk
+
+This project requires VJoy and it's python interface pyVjoy in order to work properly!
 
 # Development
 
