@@ -9,25 +9,23 @@ vjoyID = 1
 # to = button ID
 # type = <0 = "hold"; 1 = "toggle on press">    (optional, default = 0)
 
-from = 56
+from = 30
 to = 1
 type = 0
 
 [[axes]]
 # a specific axis mapping would follow this structure:
-# axis = axis ID
+# axis = axis ID, #TODO add ID's from pyvjoy to readme
 # increase = <scan code of key to increase axis>
 # decrease = <scan code of key to decrease axis> 
 # key = <rate that the key increases the value by>
 # decay = <rate of decay (towards zero) when no button is pressed>
-# max = <max value of the axis>
 
-axis = 1
-increase = 87
-decrease = 83
+axis = 48
+increase = 17
+decrease = 31
 key = 0.05
 decay = 0.05
-max = 1.0
 
 [[pov]]
 # a specific POV mapping would follow this structure:
