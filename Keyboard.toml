@@ -7,7 +7,7 @@ vjoyID = 1
 # a specific keyboard mapping would follow this structure:
 # from = <scan code of key>
 # to = button ID
-# type = <0 = "hold"; 1 = "toggle on press">
+# type = <0 = "hold"; 1 = "toggle on press">    (optional, default = 0)
 
 from = 56
 to = 1
