@@ -71,7 +71,7 @@ def setupPOV(povConfig: ContPovMapData, device: VJoyDevice):
         device.set_cont_pov(ContPovMapData.pov_id, ContPovMapData.pov_value)
     def releaseButton():
         if all([not keyboard.is_pressed(key) for key in povLocks.get(povConfig.pov_id)]):
-            device.set_cont_pov(ContPovMapData.pov_id, 0) # default state
+            device.reset_povs()
         pass
     
     if not povLocks[povConfig.pov_id]:
