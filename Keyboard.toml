@@ -14,7 +14,7 @@ to = 1
 type = 0
 
 [[axes]]
-# a specific keyboard mapping would follow this structure:
+# a specific axis mapping would follow this structure:
 # axis = axis ID
 # increase = <scan code of key to increase axis>
 # decrease = <scan code of key to decrease axis> 
@@ -28,3 +28,11 @@ decrease = 83
 key = 0.05
 decay = 0.05
 max = 1.0
+
+[[Pov]]
+# a specific POV mapping would follow this structure:
+# button = scan code of button that triggers POV
+# pov_value = pov_value that is set in code #TODO: figure out units!
+
+button = 1
+pov_value = 87
