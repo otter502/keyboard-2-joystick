@@ -21,7 +21,7 @@ type = 0
 # key = <rate that the key increases the value by>
 # decay = <rate of decay (towards zero) when no button is pressed>
 
-axis = 48
+axis = 57
 increase = 17
 decrease = 31
 key = 0.05
@@ -30,7 +30,7 @@ decay = 0.05
 [[pov]]
 # a specific POV mapping would follow this structure:
 # button = scan code of button that triggers POV
-# pov_value = pov_value that is set in code #TODO: figure out units!
+# pov_value = angle of POV (in 1/100th of degrees, 45 degrees = 4500)
 
 button = 1
 pov_value = 87
