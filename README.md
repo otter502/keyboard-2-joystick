@@ -11,6 +11,16 @@ This project requires VJoy and it's python interface pyVjoy in order to work pro
 This project is specifically made for use in FRC and attempts to provide GLASS-like keyboard to joystick control
 Currently POV buttons aren't implemented
 
+## Setup
+
+### dependency
+
+install vjoy, setup continous POV
+
+### configuration
+
+how scan codes work
+
 # Development
 
 Goal: have something that converts keyboard inputs to a virtual joystick based on an easily editable config file, similair to the GLASS tool used in FRC
