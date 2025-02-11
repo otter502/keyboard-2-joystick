@@ -89,6 +89,9 @@ def setupPOV(povConfig: ContPovMapData, device: VJoyDevice, suppress: bool):
 def mapKeys(config: KeyboardMap):
     keyboard.unhook_all()
     virtualController = VJoyDevice(config.config.vjoyID)
+
+    [virtualController.set_axis(axis, (int)(0.5 * 0x8000)) for axis in config.config.axes_ids]
+
     suppress = config.config.suppress
     for button in config.buttons:
         if button.interaction_type == 0:

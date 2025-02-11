@@ -2,8 +2,20 @@
 #general configs for the keyboard goes here
 # vjoyID = <ID of vjoy controller>
 # suppress = boolean, whether the pressed keys should be suppressed (be VERY careful if you set this to true)
+# axes_ids = list of axes which will get reset to 1/2 of their maximum value (equivalent of putting the jostick in the center) (optional) it is recommended that this contains all axes on the virtual controller
 vjoyID = 1
 suppress = false
+axes_ids = [
+    0x30,
+    0x31,
+    0x32,
+    0x33,
+    0x34,
+    0x35,
+    0x36,
+    0x37,
+    0x38
+]
 
 [[buttons]]
 # a specific keyboard mapping would follow this structure:

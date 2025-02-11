@@ -46,7 +46,8 @@ def getKeyboardMap(tomlConfig: dict[str, Any]) -> KeyboardMap:
     return KeyboardMap(
         KeyboardConfig(
             tomlConfig.get("KeyboardConfig").get("vjoyID"),
-            tomlConfig.get("KeyboardConfig").get("suppress", False)
+            tomlConfig.get("KeyboardConfig").get("suppress", False),
+            tomlConfig.get("KeyboardConfig").get("axes_ids", list())
         ),
         [convertToButtonMap(button) for button in tomlConfig.get("buttons")],
         [convertToAxesMap(axis) for axis in tomlConfig.get("axes")],

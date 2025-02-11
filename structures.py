@@ -5,6 +5,7 @@ from enum import Enum
 class KeyboardConfig:
     vjoyID: int             # ID of vJoy gamepad
     suppress: bool
+    axes_ids: list[int]
 
 @dataclass
 class ButtonMapData:
