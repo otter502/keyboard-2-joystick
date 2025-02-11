@@ -37,7 +37,7 @@ def axisPeriodic(axisData: AxesMapData, device: VJoyDevice, bypass: bool = False
     
     device.set_axis(axisData.axis, (int) ((axisData.current_value + 1)/2.0 * 0x8000))
 
-    threading.Timer(0.02, axisPeriodic,[axisData, device]).start()
+    threading.Timer(axisData.interval, axisPeriodic,[axisData, device]).start()
 
 def setupAxis(axisConfig: AxesMapData, device: VJoyDevice, suppress: bool):
     def startPeriodic():

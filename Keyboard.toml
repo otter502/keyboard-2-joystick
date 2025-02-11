@@ -22,12 +22,14 @@ type = 0
 # decrease = <scan code of key to decrease axis> 
 # key = <rate that the key increases the value by>
 # decay = <rate of decay (towards zero) when no button is pressed>
+# interval = time interval between when the rates are applied in seconds (optional default = 0.02)
 
 axis = 0x30
 increase = 17
 decrease = 31
 key = 0.05
 decay = 0.05
+interval = 0.02
 
 [[cont_pov]]
 # a specific continous POV mapping would follow this structure:

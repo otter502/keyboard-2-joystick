@@ -21,6 +21,8 @@ class AxesMapData:
     decay_rate: float       # rate of decay when no button is pressed
     max_value: float        # max value (symmetric) of axis
     current_value: float    # current value, for use by the program
+    interval: float         # time interval between when the rates are applied in seconds 
+
 
 
 @dataclass

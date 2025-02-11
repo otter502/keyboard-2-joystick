@@ -27,7 +27,8 @@ def convertToAxesMap(tomlAxes: dict[str, Any]) -> AxesMapData:
         tomlAxes.get("key"),
         tomlAxes.get("decay"),
         1.0,
-        0.0
+        0.0,
+        tomlAxes.get("interval", 0.02)
     )
 
 last_pov_id = 1
