@@ -10,7 +10,7 @@ import keyboard
 import math
 from pyvjoy import VJoyDevice
 
-registedAxis: dict[int] = set([])
+registedAxis: set[int] = set([])
 toggleButton: dict[int, bool] = {}
 povLocks: dict[int, list[int]] = {
     #axis ID : scan codes list
@@ -39,6 +39,18 @@ def axisPeriodic(axisData: AxesMapData, device: VJoyDevice, bypass: bool = False
 
     threading.Timer(0.02, axisPeriodic,[axisData, device]).start()
 
+def setupAxis(axisConfig: AxesMapData, device: VJoyDevice):
+    def startPeriodic():
+        if not registedAxis.__contains__(axisConfig.axis):
+            registedAxis.add(axisConfig.axis)
+            axisPeriodic(axisConfig, device, True)
+
+    device.set_axis(axisConfig.axis, (int) ((0.5) * 0x8000))
+
+    keyboard.on_press_key(axisConfig.increase, lambda e: startPeriodic())
+    keyboard.on_press_key(axisConfig.decrease, lambda e: startPeriodic())
+
+
 def setupHoldButton(buttonConfig: ButtonMapData, device: VJoyDevice):
     def pressButton():
         device.set_button(buttonConfig.to_button, True)
@@ -57,27 +69,18 @@ def setupToggleButton(buttonConfig: ButtonMapData, device: VJoyDevice):
 
     keyboard.on_press_key(buttonConfig.from_scan_code, lambda e: pressButton())
 
-def setupAxis(axisConfig: AxesMapData, device: VJoyDevice):
-    def startPeriodic():
-        if not registedAxis.__contains__(axisConfig.axis):
-            registedAxis.add(axisConfig.axis)
-            axisPeriodic(axisConfig, device, True)
-
-    keyboard.on_press_key(axisConfig.increase, lambda e: startPeriodic())
-    keyboard.on_press_key(axisConfig.decrease, lambda e: startPeriodic())
 
 def setupPOV(povConfig: ContPovMapData, device: VJoyDevice):
     def pressButton():
-        device.set_cont_pov(ContPovMapData.pov_id, ContPovMapData.pov_value)
+        povLocks[povConfig.pov_id].append(povConfig.button)
+        device.set_cont_pov(povConfig.pov_id, povConfig.pov_value)
+
     def releaseButton():
+        povLocks[povConfig.pov_id].remove(povConfig.button)
         if all([not keyboard.is_pressed(key) for key in povLocks.get(povConfig.pov_id)]):
             device.reset_povs()
-        pass
     
-    if not povLocks[povConfig.pov_id]:
-        povLocks[povConfig.pov_id] = list()
-
-    povLocks[povConfig.pov_id].append(povConfig.button)
+    povLocks[povConfig.pov_id] = list()
 
     keyboard.on_press_key(povConfig.button, lambda e: pressButton())
     keyboard.on_release_key(povConfig.button, lambda e: releaseButton())
@@ -94,4 +97,7 @@ def mapKeys(config: KeyboardMap):
 
     for axis in config.axes:
         setupAxis(axis, virtualController)
+
+    for pov in config.pov:
+        setupPOV(pov, virtualController)
 
