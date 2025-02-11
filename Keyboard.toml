@@ -21,7 +21,7 @@ type = 0
 # key = <rate that the key increases the value by>
 # decay = <rate of decay (towards zero) when no button is pressed>
 
-axis = 57
+axis = 0x30
 increase = 17
 decrease = 31
 key = 0.05
@@ -30,9 +30,21 @@ decay = 0.05
 [[cont_pov]]
 # a specific continous POV mapping would follow this structure:
 # scan_code = scan code of button that triggers POV
-# pov_id = the ID of the pov you want this button to affect
 # pov_value = angle of POV (in 1/100th of degrees, 45 degrees = 4500)
+# pov_id = the ID of the pov you want this button to affect (optional, default = most recent axis ID)
 
-scan_code = 1
+scan_code = 72
+pov_value = 0
 pov_id = 1
-pov_value = 45000
+
+[[cont_pov]]
+scan_code = 80
+pov_value = 18000
+
+[[cont_pov]]
+scan_code = 75
+pov_value = 27000
+
+[[cont_pov]]
+scan_code = 77
+pov_value = 9000

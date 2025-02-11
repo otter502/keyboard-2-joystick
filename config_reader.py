@@ -30,10 +30,14 @@ def convertToAxesMap(tomlAxes: dict[str, Any]) -> AxesMapData:
         0.0
     )
 
+last_pov_id = 1
+
 def convertToPov(tomlPov: dict[str, Any]) -> ContPovMapData:
+    global last_pov_id
+    last_pov_id  = tomlPov.get("pov_id", last_pov_id)
     return ContPovMapData(
         tomlPov.get("scan_code"),
-        tomlPov.get("pov_id"),
+        last_pov_id,
         tomlPov.get("pov_value")
     )
 
