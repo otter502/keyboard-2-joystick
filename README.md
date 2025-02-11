@@ -1,7 +1,7 @@
 # Keyboard 2 joystick
 
 > [!Warning]
-> This project is currently under development! it might have bugs, weird typos, debug code, and other weirdness, explore at your own risk
+> This project is currently under development! it might have bugs, weird typos, debug code, and other weirdness, explore at your own ~~risk~~ enjoyment!
 
 > [!Caution]
 > Currently POV buttons aren't implemented
