@@ -1,7 +1,9 @@
 [KeyboardConfig]
 #general configs for the keyboard goes here
 # vjoyID = <ID of vjoy controller>
+# suppress = boolean, whether the pressed keys should be suppressed (be VERY careful if you set this to true)
 vjoyID = 1
+suppress = false
 
 [[buttons]]
 # a specific keyboard mapping would follow this structure:

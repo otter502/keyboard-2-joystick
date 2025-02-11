@@ -39,7 +39,7 @@ def axisPeriodic(axisData: AxesMapData, device: VJoyDevice, bypass: bool = False
 
     threading.Timer(0.02, axisPeriodic,[axisData, device]).start()
 
-def setupAxis(axisConfig: AxesMapData, device: VJoyDevice):
+def setupAxis(axisConfig: AxesMapData, device: VJoyDevice, suppress: bool):
     def startPeriodic():
         if not registedAxis.__contains__(axisConfig.axis):
             registedAxis.add(axisConfig.axis)
@@ -47,30 +47,30 @@ def setupAxis(axisConfig: AxesMapData, device: VJoyDevice):
 
     device.set_axis(axisConfig.axis, (int) ((0.5) * 0x8000))
 
-    keyboard.on_press_key(axisConfig.increase, lambda e: startPeriodic())
-    keyboard.on_press_key(axisConfig.decrease, lambda e: startPeriodic())
+    keyboard.on_press_key(axisConfig.increase, lambda e: startPeriodic(), suppress)
+    keyboard.on_press_key(axisConfig.decrease, lambda e: startPeriodic(), suppress)
 
 
-def setupHoldButton(buttonConfig: ButtonMapData, device: VJoyDevice):
+def setupHoldButton(buttonConfig: ButtonMapData, device: VJoyDevice, supresss: bool):
     def pressButton():
         device.set_button(buttonConfig.to_button, True)
     def releaseButton():
         device.set_button(buttonConfig.to_button, False)
 
-    keyboard.on_press_key(buttonConfig.from_scan_code, lambda e: pressButton())
-    keyboard.on_release_key(buttonConfig.from_scan_code, lambda e: releaseButton())
+    keyboard.on_press_key(buttonConfig.from_scan_code, lambda e: pressButton(), supresss)
+    keyboard.on_release_key(buttonConfig.from_scan_code, lambda e: releaseButton(), supresss)
 
-def setupToggleButton(buttonConfig: ButtonMapData, device: VJoyDevice):
+def setupToggleButton(buttonConfig: ButtonMapData, device: VJoyDevice, suppress: bool):
     toggleButton[buttonConfig.to_button] = False #registers button
     
     def pressButton():
         toggleButton[buttonConfig.to_button] = not toggleButton[buttonConfig.to_button]
         device.set_button(buttonConfig.to_button, toggleButton[buttonConfig.to_button])
 
-    keyboard.on_press_key(buttonConfig.from_scan_code, lambda e: pressButton())
+    keyboard.on_press_key(buttonConfig.from_scan_code, lambda e: pressButton(), suppress)
 
 
-def setupPOV(povConfig: ContPovMapData, device: VJoyDevice):
+def setupPOV(povConfig: ContPovMapData, device: VJoyDevice, suppress: bool):
     def pressButton():
         povLocks[povConfig.pov_id].append(povConfig.button)
         device.set_cont_pov(povConfig.pov_id, povConfig.pov_value)
@@ -82,22 +82,23 @@ def setupPOV(povConfig: ContPovMapData, device: VJoyDevice):
     
     povLocks[povConfig.pov_id] = list()
 
-    keyboard.on_press_key(povConfig.button, lambda e: pressButton())
-    keyboard.on_release_key(povConfig.button, lambda e: releaseButton())
+    keyboard.on_press_key(povConfig.button, lambda e: pressButton(), suppress)
+    keyboard.on_release_key(povConfig.button, lambda e: releaseButton(), suppress)
 
 
 def mapKeys(config: KeyboardMap):
     keyboard.unhook_all()
     virtualController = VJoyDevice(config.config.vjoyID)
+    suppress = config.config.suppress
     for button in config.buttons:
         if button.interaction_type == 0:
-            setupHoldButton(button, virtualController)
+            setupHoldButton(button, virtualController, suppress)
         if button.interaction_type == 1:
-            setupToggleButton(button, virtualController)
+            setupToggleButton(button, virtualController, suppress)
 
     for axis in config.axes:
-        setupAxis(axis, virtualController)
+        setupAxis(axis, virtualController, suppress)
 
     for pov in config.pov:
-        setupPOV(pov, virtualController)
+        setupPOV(pov, virtualController, suppress)
 

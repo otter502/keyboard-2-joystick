@@ -43,7 +43,10 @@ def convertToPov(tomlPov: dict[str, Any]) -> ContPovMapData:
 
 def getKeyboardMap(tomlConfig: dict[str, Any]) -> KeyboardMap:
     return KeyboardMap(
-        KeyboardConfig(tomlConfig.get("KeyboardConfig").get("vjoyID")),
+        KeyboardConfig(
+            tomlConfig.get("KeyboardConfig").get("vjoyID"),
+            tomlConfig.get("KeyboardConfig").get("suppress", False)
+        ),
         [convertToButtonMap(button) for button in tomlConfig.get("buttons")],
         [convertToAxesMap(axis) for axis in tomlConfig.get("axes")],
         [convertToPov(pov) for pov in tomlConfig.get("cont_pov")]

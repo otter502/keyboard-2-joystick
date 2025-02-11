@@ -4,6 +4,7 @@ from enum import Enum
 @dataclass
 class KeyboardConfig:
     vjoyID: int             # ID of vJoy gamepad
+    suppress: bool
 
 @dataclass
 class ButtonMapData:
