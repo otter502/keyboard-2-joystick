@@ -3,7 +3,7 @@
 # vjoyID = <ID of vjoy controller>
 vjoyID = 1
 
-[[KeyboardConfig.buttons]]
+[[buttons]]
 # a specific keyboard mapping would follow this structure:
 # from = <scan code of key>
 # to = button ID
@@ -13,7 +13,7 @@ from = 56
 to = 1
 type = 0
 
-[[KeyboardConfig.axes]]
+[[axes]]
 # a specific keyboard mapping would follow this structure:
 # axis = axis ID
 # increase = <scan code of key to increase axis>
