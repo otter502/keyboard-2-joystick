@@ -75,6 +75,3 @@ def mapKeys(config: KeyboardMap):
     for axis in config.axes:
         setupAxis(axis, virtualController)
 
-mapKeys(config_reader.getKeyboardMap(config_reader.getToml("./Keyboard.toml")))
-
-time.sleep(20.0)
