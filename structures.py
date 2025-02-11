@@ -23,14 +23,15 @@ class AxesMapData:
 
 
 @dataclass
-class PovMapData:
+class ContPovMapData:
     button: int             # scan code of button that triggers POV
-    pov_value: float        # pov_value = pov_value that is set in code #TODO: figure out units!
+    pov_id: int
+    pov_value: float        # pov_value = pov_value that is set in code 1/100th of a degree)
 
 @dataclass
 class KeyboardMap:
     config: KeyboardConfig
     buttons: list[ButtonMapData]
     axes: list[AxesMapData]
-    pov: list[PovMapData]
+    pov: list[ContPovMapData]
 

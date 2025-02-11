@@ -4,13 +4,17 @@ import time
 from structures import AxesMapData
 from structures import KeyboardMap
 from structures import ButtonMapData
+from structures import ContPovMapData
 import config_reader
 import keyboard
 import math
 from pyvjoy import VJoyDevice
 
-registedAxis = set([])
-toggleButton = {}
+registedAxis: dict[int] = set([])
+toggleButton: dict[int, bool] = {}
+povLocks: dict[int, list[int]] = {
+    #axis ID : scan codes list
+}
 
 #this function will be called by the joystick buttons in order to simulate pushing a button towards or away from a value
 def axisPeriodic(axisData: AxesMapData, device: VJoyDevice, bypass: bool = False):
@@ -61,6 +65,22 @@ def setupAxis(axisConfig: AxesMapData, device: VJoyDevice):
 
     keyboard.on_press_key(axisConfig.increase, lambda e: startPeriodic())
     keyboard.on_press_key(axisConfig.decrease, lambda e: startPeriodic())
+
+def setupPOV(povConfig: ContPovMapData, device: VJoyDevice):
+    def pressButton():
+        device.set_cont_pov(ContPovMapData.pov_id, ContPovMapData.pov_value)
+    def releaseButton():
+        if all([not keyboard.is_pressed(key) for key in povLocks.get(povConfig.pov_id)]):
+            device.set_cont_pov(ContPovMapData.pov_id, 0) # default state
+        pass
+    
+    if not povLocks[povConfig.pov_id]:
+        povLocks[povConfig.pov_id] = list()
+
+    povLocks[povConfig.pov_id].append(povConfig.button)
+
+    keyboard.on_press_key(povConfig.button, lambda e: pressButton())
+    keyboard.on_release_key(povConfig.button, lambda e: releaseButton())
 
 
 def mapKeys(config: KeyboardMap):
