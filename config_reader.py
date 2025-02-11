@@ -26,7 +26,8 @@ def convertToAxesMap(tomlAxes: dict[str, Any]) -> AxesMapData:
         tomlAxes.get("decrease"),
         tomlAxes.get("key"),
         tomlAxes.get("decay"),
-        tomlAxes.get("max")
+        1.0,
+        0.0
     )
 
 def convertToPov(tomlPov: dict[str, Any]) -> PovMapData:
@@ -37,10 +38,9 @@ def convertToPov(tomlPov: dict[str, Any]) -> PovMapData:
 
 def getKeyboardMap(tomlConfig: dict[str, Any]) -> KeyboardMap:
     return KeyboardMap(
-        tomlConfig.get("KeyboardConfig"),
+        KeyboardConfig(tomlConfig.get("KeyboardConfig").get("vjoyID")),
         [convertToButtonMap(button) for button in tomlConfig.get("buttons")],
         [convertToAxesMap(axis) for axis in tomlConfig.get("axes")],
         [convertToPov(pov) for pov in tomlConfig.get("pov")]
     )
 
-print(getKeyboardMap(getToml("./Keyboard.toml")))
