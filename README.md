@@ -3,7 +3,13 @@
 > [!Warning]
 > This project is currently under development! it might have bugs, weird typos, debug code, and other weirdness, explore at your own risk
 
-This project requires VJoy and it's python interface pyVjoy in order to work properly!
+> [!Caution]
+> Currently POV buttons aren't implemented
+
+This project requires VJoy and it's python interface pyVjoy in order to work properly
+
+This project is specifically made for use in FRC and attempts to provide GLASS-like keyboard to joystick control
+Currently POV buttons aren't implemented
 
 # Development
 
