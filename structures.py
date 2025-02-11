@@ -19,6 +19,8 @@ class AxesMapData:
     key_rate: float         # rate at which the increase or decrease key affects axis
     decay_rate: float       # rate of decay when no button is pressed
     max_value: float        # max value (symmetric) of axis
+    current_value: float    # current value, for use by the program
+
 
 @dataclass
 class PovMapData:
