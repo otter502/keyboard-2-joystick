@@ -13,13 +13,21 @@ Currently POV buttons aren't implemented
 
 ### dependency
 
-install vjoy, setup continous POV
+install [vjoy](https://sourceforge.net/projects/vjoystick/)!
+
+this program uses [pyvjoy](https://github.com/tidzo/pyvjoy) to communicate with vjoy.
+
+it also uses [tomllib](https://docs.python.org/3/library/tomllib.html) to read the configuration and [keyboard](https://pypi.org/project/keyboard/) to read the keyboard inputs 
 
 ### configuration
 
-how scan codes work
+In order to configure the keyboard you'll use a toml file!
 
-# Development
+There is an example / template config [in the directory](./Keyboard.toml) with comments!
+
+There are plans to implement a easy config editor but for now I'd reccomend duplicating the template as it has comments for what each variable means!
+
+## Development
 
 Goal: have something that converts keyboard inputs to a virtual joystick based on an easily editable config file, similair to the GLASS tool used in FRC
 
