@@ -3,8 +3,6 @@
 > [!Warning]
 > This project is currently under development! it might have bugs, weird typos, debug code, and other weirdness, explore at your own ~~risk~~ enjoyment!
 
-> [!Caution]
-> Currently POV buttons aren't implemented
 
 This project requires VJoy and it's python interface pyVjoy in order to work properly
 
