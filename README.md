@@ -27,6 +27,8 @@ There is an example / template config [in the directory](./Keyboard.toml) with c
 
 There are plans to implement a easy config editor but for now I'd reccomend duplicating the template as it has comments for what each variable means!
 
+you can use the [keyboard scanner](./keyboardScanner.py) in the repo to figure out what keys map to which scancodes!
+
 ## Development
 
 Goal: have something that converts keyboard inputs to a virtual joystick based on an easily editable config file, similair to the GLASS tool used in FRC

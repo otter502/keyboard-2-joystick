@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from enum import Enum
+
+# this file holds the data structures used in the rest of the program
 
 @dataclass
 class KeyboardConfig:
@@ -29,7 +30,7 @@ class AxesMapData:
 @dataclass
 class ContPovMapData:
     button: int             # scan code of button that triggers POV
-    pov_id: int
+    pov_id: int             # ID of the POV
     pov_value: float        # pov_value = pov_value that is set in code 1/100th of a degree)
 
 @dataclass

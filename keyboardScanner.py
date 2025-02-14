@@ -1,4 +1,6 @@
 import keyboard
+# this is a simple program seperate from the rest of the files, this returns the scancodes of the keys pressed down while it's running
+
 
 try:
     while True:

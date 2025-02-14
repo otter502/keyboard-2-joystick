@@ -42,6 +42,8 @@ def convertToPov(tomlPov: dict[str, Any]) -> ContPovMapData:
         tomlPov.get("pov_value")
     )
 
+# this function takes in the toml dictionary and returns a keyboard map
+# it fills out the dataclass classes in structures.py
 def getKeyboardMap(tomlConfig: dict[str, Any]) -> KeyboardMap:
     return KeyboardMap(
         KeyboardConfig(
