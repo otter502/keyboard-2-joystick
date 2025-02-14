@@ -19,6 +19,8 @@ this program uses [pyvjoy](https://github.com/tidzo/pyvjoy) to communicate with 
 
 it also uses [tomllib](https://docs.python.org/3/library/tomllib.html) to read the configuration and [keyboard](https://pypi.org/project/keyboard/) to read the keyboard inputs 
 
+In order to use this while you've selected the FRC driverstation, you'll need to run it as administrator (if using vscode for example, you'll run the vscode instance as administrator)
+
 ### configuration
 
 In order to configure the keyboard you'll use a toml file!
@@ -35,8 +37,8 @@ Goal: have something that converts keyboard inputs to a virtual joystick based o
 
 | Needs             | wants | Nice to have |
 | --------          | ------- | ---- |
-| config            | running in background    |  GUI to edit config   |
-| virtual xbox controller  | Easy way to enable and disable (toolbar?)   |  different ways of pressing button (ramping, on-off, sticky, etc)  |
-| keyboard to joystick remapping |  switching between configs by loading them   |   |
+| [x] config  | [x] running in background    | [ ] GUI to edit config   |
+| [x] virtual xbox controller | [ ] Easy way to enable and disable (toolbar?)   | [x] different ways of pressing button (ramping, on-off, sticky, etc)  |
+| [x] keyboard to joystick remapping | [ ] switching between configs   |   |
 
 the keyboard input will be the scan code as a decimal
